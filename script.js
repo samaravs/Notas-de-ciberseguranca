@@ -50,14 +50,14 @@ const posts = [
 ];
 
 function parseDataBrasil(dataStr) {
-        const [dia, mes, ano] = dataStr.split('/');
-        return new Date(`${ano}-${mes}-${dia}`);
-    }
+    const [dia, mes, ano] = dataStr.split('/');
+    return new Date(`${ano}-${mes}-${dia}`);
+}
 
 posts.sort((a, b) => {
-  const dataA = parseDataBrasil(a.data);
-  const dataB = parseDataBrasil(b.data);
-  return dataB - dataA;
+    const dataA = parseDataBrasil(a.data);
+    const dataB = parseDataBrasil(b.data);
+    return dataB - dataA;
 });
 
 
@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li><a href="index.html#ultimos-artigos">Tutoriais</a></li>
                     <li><a href="index.html#alertas">Notícias de segurança</a></li>
                     <li><a href="ferramentas.html">Ferramentas</a></li>
-                    <li><a href="recomendacoes.html">Produtos recomendados</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                 </ul>
                 </div>
@@ -175,21 +174,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const containersPosts = document.querySelectorAll('.post-list');
 
     if (searchInput && containersPosts.length) {
-  searchInput.addEventListener('input', (e) => {
-    const termo = e.target.value.toLowerCase();
+        searchInput.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase();
 
-    containersPosts.forEach(container => {
-      const postsRenderizados = container.querySelectorAll('.post-preview');
+            containersPosts.forEach(container => {
+                const postsRenderizados = container.querySelectorAll('.post-preview');
 
-      postsRenderizados.forEach(post => {
-        const titulo = post.querySelector('h3').innerText.toLowerCase();
-        if (titulo.includes(termo)) {
-          post.style.display = 'block';
-        } else {
-          post.style.display = 'none';
-        }
-      });
-    });
-  });
-}
+                postsRenderizados.forEach(post => {
+                    const titulo = post.querySelector('h3').innerText.toLowerCase();
+                    if (titulo.includes(termo)) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 });

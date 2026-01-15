@@ -590,7 +590,7 @@ main h2 {
 
 .product-card:hover {
     transform: translateY(-4px);
-    background-color: var(--cor-texto-destaque);
+    background-color: var(--cor-destaque);
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
