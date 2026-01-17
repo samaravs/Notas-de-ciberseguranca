@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${!isHome ? '<a href="index.html" class="mini-logo">Notas de Cibersegurança</a>' : ''}
 
                 <button class="menu-toggle" aria-label="Abrir menu">
-                    <span class="linha"></span><span class="linha"></span>
+                    <span class="linha"></span>
+                    <span class="linha"></span>
+                    <span class="linha"></span>
                 </button>
                 <ul id="menu-principal">
                     <li><a href="index.html" class="ativo">Início</a></li>
