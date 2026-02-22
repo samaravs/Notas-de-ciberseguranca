@@ -151,7 +151,7 @@ body:has(.nav-interna) main {
     width: 100%;
     background-image:
         linear-gradient(rgba(8, 13, 24, 0.88), rgba(8, 13, 24, 0.5)),
-        url('images/bg-desktop.jpg');
+        url('assets/bg-desktop.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -662,7 +662,7 @@ main h2 {
     .hero {
         background-image:
             linear-gradient(rgba(8, 13, 24, 0.9), rgba(8, 13, 24, 0.6)),
-            url('images/bg-mobile.jpg');
+            url('assets/bg-mobile.jpg');
         background-attachment: scroll;
         min-height: 80vh;
         padding: 120px 1.5rem 4rem;

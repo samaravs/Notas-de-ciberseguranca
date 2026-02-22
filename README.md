@@ -32,15 +32,41 @@ Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre
 
 ```
 /
-├── index.html          # Página principal
-├── sobre.html          # Página sobre
-├── ferramentas.html    # Ferramentas recomendadas
-├── phishing.html       # Artigo sobre phishing
-├── autenticacao.html   # Artigo sobre 2FA
-├── firewall.html       # Artigo sobre firewall
-├── style.css           # Estilos globais
-├── script.js           # Lógica e interatividade
-└── images/             # Ícones e imagens
+├── index.html              # Página principal
+├── sobre.html              # Página sobre
+├── ferramentas.html        # Ferramentas recomendadas
+├── style.css               # Estilos globais
+├── script.js               # Lógica e interatividade
+├── images/                 # Ícones e imagens
+│
+└── artigos/                # Cada artigo em sua própria pasta
+    ├── phishing/
+    │   └── index.html
+    ├── autenticacao/
+    │   └── index.html
+    ├── firewall/
+    │   └── index.html
+    ├── senhas/
+    │   └── index.html
+    └── golpes/
+        └── index.html
+```
+
+## ➕ Como adicionar um novo artigo
+
+1. Crie uma pasta em `artigos/nome-do-artigo/`
+2. Crie o `index.html` dentro dela — use qualquer artigo existente como template
+3. Ajuste os caminhos: `../../style.css`, `../../images/`, `../../script.js`
+4. Adicione o post no array `posts` do `script.js`:
+
+```js
+{
+    titulo: "Título do artigo",
+    data: "DD/MM/AAAA",
+    descricao: "Descrição curta.",
+    categoria: "artigo", // artigo | guia | alerta
+    link: "artigos/nome-do-artigo/"
+}
 ```
 
 ## 🚀 Como rodar localmente

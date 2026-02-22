@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação de 2FA — Notas de Cibersegurança</title>
+    <link rel="stylesheet" href="../../style.css">
+    <meta name="description" content="Entenda o que é autenticação de dois fatores (2FA) e por que você deve ativar hoje.">
+    <meta name="keywords" content="cibersegurança, 2fa, autenticação dois fatores, segurança online, privacidade">
+    <meta name="author" content="Samara - Notas de Cibersegurança">
+    <link rel="icon" type="image/png" href="../../assets/notas.png">
+</head>
+
+<body>
+    <div id="app-header"></div>
+
+    <main class="container">
+        <article class="post-full">
+            <h1>Autenticação de 2FA: o que é?</h1>
+            <p class="post-meta">Publicado em 30/10/2025 • Categoria: Artigo</p>
+
+            <nav class="toc">
+                <strong>Neste artigo:</strong>
+                <ul>
+                    <li><a href="#sec1">O que é 2FA</a></li>
+                    <li><a href="#sec2">Como funciona na prática</a></li>
+                    <li><a href="#sec3">Por que usar</a></li>
+                </ul>
+            </nav>
+
+            <section class="post-content">
+                <h3 class="subtitulo">Você usa a mesma senha em vários sites? Cuidado! Entenda como uma camada extra de segurança pode salvar suas contas de um desastre.</h3>
+
+                <figure>
+                    <img src="../../assets/escudo.jpg" alt="Ilustração de um cadeado e um celular simbolizando o 2FA">
+                    <figcaption>A 2FA adiciona uma camada extra de segurança, combinando algo que você sabe (senha) com algo que você tem (celular).</figcaption>
+                    <br><span class="image-credit">
+                        Imagem por: <a href="https://br.freepik.com/vetores-gratis/escudo-de-seguranca-cibernetica-com-telefone-inteligente_81409692.htm" target="_blank">juicy_fish</a>
+                        via <a href="https://br.freepik.com/" target="_blank">Freepik</a>
+                    </span>
+                </figure>
+
+                <p class="texto-justificado">No mundo digital de hoje, usamos senhas para quase tudo: e-mail, redes sociais, contas bancárias, compras online e até para o trabalho. O problema? Na maioria das vezes, essa senha é a única coisa que protege suas informações mais valiosas. É aqui que entra a <strong>Autenticação de Dois Fatores (2FA)</strong> — uma tranca extra que pede uma segunda prova de identidade.</p>
+
+                <h2 id="sec1">O que exatamente é a Autenticação de Dois Fatores (2FA)?</h2>
+                <p class="texto-justificado">A Autenticação de Dois Fatores exige que o usuário forneça duas formas diferentes de identificação antes de acessar uma conta. Os fatores se dividem em três tipos:</p>
+                <ol>
+                    <li><strong>Algo que você sabe:</strong> Uma senha ou código PIN.</li>
+                    <li><strong>Algo que você tem:</strong> Seu smartphone, um token USB ou cartão de acesso.</li>
+                    <li><strong>Algo que você é:</strong> Impressão digital, reconhecimento facial ou leitura de íris.</li>
+                </ol>
+                <p class="texto-justificado">A 2FA combina dois desses fatores. A forma mais popular: <strong>senha + celular.</strong></p>
+
+                <h2 id="sec2">Como o 2FA funciona na prática?</h2>
+                <ol>
+                    <li><strong>Fator 1:</strong> Você digita seu e-mail e senha corretamente.</li>
+                    <li>
+                        <strong>Fator 2:</strong> O serviço pede um código enviado ao seu celular, seja por:
+                        <ul>
+                            <li><strong>SMS:</strong> Código de 6 dígitos. Conveniente, mas o menos seguro.</li>
+                            <li><strong>Aplicativo Autenticador:</strong> Código que muda a cada 30 segundos.</li>
+                            <li><strong>Notificação Push:</strong> Uma notificação pergunta "É você?" e você confirma.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <figure>
+                    <img src="../../assets/autenticador.png" alt="ilustração de um aplicativo autenticador mostrando códigos TOTP">
+                    <figcaption>Aplicativos como Google Authenticator geram códigos (TOTP) que mudam a cada 30 segundos.</figcaption>
+                </figure>
+
+                <h2 id="sec3">Por que o 2FA é tão importante?</h2>
+                <p class="texto-justificado"><strong>Porque senhas vazam o tempo todo.</strong> Com o 2FA ativado, mesmo que um hacker consiga sua senha, ele não consegue acessar sua conta sem o segundo fator.</p>
+                <p class="texto-justificado"><strong>Sua tarefa de hoje:</strong> Vá até as configurações de segurança das suas contas mais importantes e ative a "Autenticação de Dois Fatores".</p>
+            </section>
+
+            <div class="post-footer-nav">
+                <a href="../../index.html" class="read-more">← Voltar</a>
+            </div>
+        </article>
+    </main>
+
+    <footer id="app-footer"></footer>
+    <script src="../../script.js"></script>
+</body>
+</html>
