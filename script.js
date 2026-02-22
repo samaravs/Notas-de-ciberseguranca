@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="linha"></span>
                 </button>
                 <ul id="menu-principal">
-                    <li><a href="index.html" class="ativo">Início</a></li>
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="index.html#guias">Conceitos básicos</a></li>
                     <li><a href="index.html#ultimos-artigos">Tutoriais</a></li>
                     <li><a href="index.html#alertas">Notícias de segurança</a></li>
@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroHTML = `
         <header class="hero">
             <div class="container">
+                <span class="hero-tag">✦ Segurança Digital</span>
                 <h1>
                     <span class="texto-destaque">Notas de Cibersegurança</span>
                 </h1>
@@ -136,10 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
         posts.forEach(post => {
             const postHTML = `
                 <article class="post-preview">
-                    <h3><a href="${post.link}">${post.titulo}</a></h3>
-                    <span class="post-date">${post.data}</span>
-                    <p>${post.descricao}</p>
-                    <a href="${post.link}" class="read-more">Ler Artigo</a>
+                    <div>
+                        <h3>${post.link !== '#' ? `<a href="${post.link}">${post.titulo}</a>` : `<span>${post.titulo}</span>`}</h3>
+                        <span class="post-date">${post.data}</span>
+                        <p>${post.descricao}</p>
+                    </div>
+                    ${post.link !== '#' 
+                        ? `<a href="${post.link}" class="read-more">Ler artigo →</a>` 
+                        : `<span class="post-em-breve">Em breve</span>`}
                 </article>
             `;
 
@@ -160,6 +165,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarLayout();
     carregarPosts();
+
+    // marca o link ativo com base na página atual
+    const currentFile = path.split('/').pop() || 'index.html';
+    document.querySelectorAll('#menu-principal a').forEach(link => {
+        const href = link.getAttribute('href');
+        const linkFile = href.split('#')[0];
+        const temAncora = href.includes('#');
+        // só marca como ativo se for a página exata e não tiver âncora
+        if (!temAncora && (linkFile === currentFile || (currentFile === '' && linkFile === 'index.html'))) {
+            link.classList.add('ativo');
+        }
+    });
 
     const menuToggleButton = document.querySelector('.menu-toggle');
     const menuPrincipal = document.querySelector('#menu-principal');

@@ -7,46 +7,50 @@
 
 Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre Segurança da Informação. O projeto foca em oferecer uma interface limpa, com navegação intuitiva e performance otimizada.
 
-## 🔗 Acesso Online (Live Demo)
+## 🔗 Acesso Online
 
-O projeto está hospedado e funcional. Acesse através do link abaixo:
-
-👉 **[Acessar Notas de Cibersegurança](https://2samy6.github.io/Notas-de-ciberseguranca/)**
+👉 **[Acessar Notas de Cibersegurança](https://samaravs.github.io/Notas-de-ciberseguranca/)**
 
 ---
 
-## 💻 Funcionalidades do Projeto
+## 💻 Funcionalidades
 
-* **Categorização de Conteúdo:** Estrutura dividida em seções claras como "Guias para Iniciantes", "Alertas Recentes" e "Últimos Artigos".
-* **Design Responsivo:** Interface adaptável que garante leitura confortável em desktops, tablets e smartphones (Mobile First).
-* **Tema Dark:** Identidade visual inspirada no universo de cibersegurança, utilizando contrastes adequados para leitura prolongada.
-* **Performance:** Carregamento instantâneo utilizando apenas tecnologias nativas (sem frameworks pesados).
+- **Categorização de Conteúdo:** Seções de Artigos, Guias para Iniciantes e Alertas Recentes
+- **Busca em tempo real:** Filtro de posts por título sem recarregar a página
+- **Design Responsivo:** Interface adaptável para desktop, tablet e smartphone
+- **Tema Dark:** Identidade visual inspirada no universo de cibersegurança
+- **Performance:** Carregamento rápido usando apenas tecnologias nativas (sem frameworks)
+- **Nav dinâmica:** Header e footer gerados via JavaScript com estado ativo por página
 
-## 🛠 Tecnologias Utilizadas
+## 🛠 Tecnologias
 
-* **HTML5 Semântico:** Para estruturação e SEO otimizado.
-* **CSS3 Moderno:** Utilização de Flexbox para layout e variáveis CSS para gerenciamento de cores.
-* **JavaScript (Vanilla):** Lógica para interatividade e manipulação dinâmica dos elementos da página.
+- **HTML5 Semântico**
+- **CSS3** — variáveis, Flexbox, Grid, responsividade
+- **JavaScript Vanilla** — manipulação do DOM, ordenação de posts, busca, menu mobile
 
-## 📂 Estrutura de Arquivos
+## 📂 Estrutura
 
-```bash
+```
 /
-├── index.html   # Página principal com a estrutura das seções
-├── style.css    # Estilos globais, reset e tipografia
-├── script.js    # Scripts de interação
-└── imagens/      # Ícones e assets visuais
+├── index.html          # Página principal
+├── sobre.html          # Página sobre
+├── ferramentas.html    # Ferramentas recomendadas
+├── phishing.html       # Artigo sobre phishing
+├── autenticacao.html   # Artigo sobre 2FA
+├── firewall.html       # Artigo sobre firewall
+├── style.css           # Estilos globais
+├── script.js           # Lógica e interatividade
+└── images/             # Ícones e imagens
 ```
 
 ## 🚀 Como rodar localmente
 
-Para clonar e executar este projeto no seu computador para fins de desenvolvimento:
+```bash
+git clone https://github.com/samaravs/Notas-de-ciberseguranca.git
+cd Notas-de-ciberseguranca
+# abra o index.html no navegador
+```
 
-1. Clone o repositório:
-git clone https://github.com/2samy6/Notas-de-ciberseguranca.git
+---
 
-2. Abra o arquivo index.html no seu navegador.
-
-## 📄 Licença
-
-Este projeto foi desenvolvido por Samara Vieira como parte de portfólio profissional de desenvolvimento Front-End.
+Desenvolvido por **Samara Vieira** · [GitHub](https://github.com/samaravs) · [Instagram](https://www.instagram.com/notas.ciberseguranca/)
