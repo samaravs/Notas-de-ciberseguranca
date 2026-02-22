@@ -28,7 +28,7 @@ const posts = [
         data: "10/12/2025",
         descricao: "Aprenda a criar senhas seguras e fáceis de lembrar.",
         categoria: "guia",
-        link: "#"
+        link: "senhas.html"
     },
 
     {
@@ -36,7 +36,7 @@ const posts = [
         data: "08/12/2025",
         descricao: "Veja quais são os golpes mais usados e como evitá-los.",
         categoria: "alerta",
-        link: "#"
+        link: "golpes.html"
     },
 
     {
@@ -44,7 +44,7 @@ const posts = [
         data: "05/12/2025",
         descricao: "Entenda como funciona o 2FA e por que ativar hoje.",
         categoria: "artigo",
-        link: "#"
+        link: "autenticacao.html"
     }
 
 ];
