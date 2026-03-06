@@ -50,14 +50,10 @@ posts.sort((a, b) => {
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
 
-    /*
-      Detecta se está na raiz (index.html) ou dentro de uma subpasta (artigos/...)
-      necessário para gerar os links do nav corretamente em cada contexto
-    */
+   
     const isHome = path.includes('index.html') || path.endsWith('/Notas-de-ciberseguranca/') || path.endsWith('/');
     const isArtigo = path.includes('/artigos/');
 
-    // Prefixo de caminho: se estiver num artigo, precisa voltar ../../ até a raiz
     const base = isArtigo ? '../../' : '';
 
     const navHTML = `
@@ -97,8 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const footerHTML = `
         <div class="container">
-            <p>Conecte-se comigo pelo Instagram: <a href="https://www.instagram.com/notas.ciberseguranca/" target="_blank">@notas.ciberseguranca</a></p>
-            <p>&copy; 2025 Meu diário de Cibersegurança.</p>
+            <p>&copy; 2025 Notas de Cibersegurança.</p>
         </div>
     `;
 
@@ -146,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarLayout();
     carregarPosts();
 
-    // Marca link ativo no nav
     const currentFile = path.split('/').pop() || 'index.html';
     document.querySelectorAll('#menu-principal a').forEach(link => {
         const href = link.getAttribute('href');
