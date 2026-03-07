@@ -5,7 +5,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre Segurança da Informação. O projeto foca em oferecer uma interface limpa, com navegação intuitiva e performance otimizada. 
+![Demonstração do Notas de Cibersegurança](assets/demo.gif)
 
 ## 🔗 Acesso Online
 
@@ -13,42 +13,47 @@ Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre
 
 ---
 
+## 🎯 O Objetivo do Projeto (Por que ele existe?)
+
+Este projeto nasceu com um propósito principal: **colocar a mão na massa e aprofundar meus conhecimentos nos fundamentos do Desenvolvimento Web Front-end (HTML semântico, CSS e Vanilla JavaScript)**.
+
+Para tornar o processo de aprendizado mais empolgante, resolvi unir a programação com outra área que gosto muito: a **Cibersegurança**.
+
+O resultado é um laboratório prático de código que funciona como um blog real. Ele traduz termos técnicos (como Phishing e 2FA) e noticia golpes recentes de forma simples, direta e acessível para o usuário comum.
+
+## 🧠 O que eu aprendi desenvolvendo este projeto
+
+Como o foco era dominar a base antes de pular para frameworks complexos (como React ou Vue), construí tudo "do zero". Os meus maiores aprendizados aqui foram:
+
+- **Manipulação de DOM:** Criei um sistema de injeção dinâmica com JavaScript para renderizar o Cabeçalho (Header) e Rodapé (Footer), evitando repetição de código.
+- **Filtros e Buscas:** Implementei um `addEventListener` na barra de pesquisa que filtra a renderização dos cards de artigos instantaneamente.
+- **CSS Modular:** Utilizei CSS Variables (`:root`) para gerenciar o tema de cores de forma global.
+- **Arquitetura de Pastas e URLs Limpas:** Estruturei os diretórios para que os caminhos fiquem amigáveis, lidando com caminhos relativos (`../../`) no CSS e JS de forma eficiente.
+
 ## 💻 Funcionalidades
 
-- **Categorização de Conteúdo:** Seções de Artigos, Guias para Iniciantes e Alertas Recentes
-- **Busca em tempo real:** Filtro de posts por título sem recarregar a página
-- **Design Responsivo:** Interface adaptável para desktop, tablet e smartphone
-- **Tema Dark:** Identidade visual inspirada no universo de cibersegurança
-- **Performance:** Carregamento rápido usando apenas tecnologias nativas (sem frameworks)
-- **Nav dinâmica:** Header e footer gerados via JavaScript com estado ativo por página
-
-## 🛠 Tecnologias
-
-- **HTML5 Semântico**
-- **CSS3** — variáveis, Flexbox, Grid, responsividade
-- **JavaScript Vanilla** — manipulação do DOM, ordenação de posts, busca, menu mobile
+- **Busca em tempo real:** Filtro de posts por título sem recarregar a página.
+- **Design Responsivo (Mobile First):** Interface adaptável para desktop, tablet e smartphone, com menu hambúrguer customizado.
+- **Tema e Tipografia:** Identidade visual imersiva com fontes importadas (Outfit e Inter) para otimizar a leitura de artigos longos.
+- **Performance:** Carregamento rápido usando apenas tecnologias nativas.
 
 ## 📂 Estrutura
 
-```
+```text
 /
 ├── index.html              # Página principal
 ├── sobre.html              # Página sobre
 ├── ferramentas.html        # Ferramentas recomendadas
 ├── style.css               # Estilos globais
 ├── script.js               # Lógica e interatividade
-├── images/                 # Ícones e imagens
+├── assets/                 # Ícones, imagens e GIFs de demonstração
 │
-└── artigos/                # Cada artigo em sua própria pasta
+└── artigos/                # Cada artigo em sua própria pasta 
+    ├── megavazamento/
+    │   └── index.html
     ├── phishing/
     │   └── index.html
-    ├── autenticacao/
-    │   └── index.html
-    ├── firewall/
-    │   └── index.html
-    ├── senhas/
-    │   └── index.html
-    └── golpes/
+    └── autenticacao/
         └── index.html
 ```
 
@@ -64,7 +69,7 @@ Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre
     titulo: "Título do artigo",
     data: "DD/MM/AAAA",
     descricao: "Descrição curta.",
-    categoria: "artigo", 
+    categoria: "artigo",
     link: "artigos/nome-do-artigo/"
 }
 ```
