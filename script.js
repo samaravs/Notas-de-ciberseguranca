@@ -34,6 +34,13 @@ const posts = [
         categoria: "alerta",
         link: "artigos/golpes/"
     },
+    {
+        titulo: "Megavazamento de operadora expõe usuários",
+        data: "06/03/2026",
+        descricao: "Dados de mais de 500 mil clientes de telefonia móvel vazaram nesta semana. Veja como verificar se você foi afetado.",
+        categoria: "alerta",
+        link: "artigos/megavazamento/"
+    },
 ];
 
 function parseDataBrasil(dataStr) {

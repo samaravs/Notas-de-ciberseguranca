@@ -5,7 +5,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre Segurança da Informação. O projeto foca em oferecer uma interface limpa, com navegação intuitiva e performance otimizada.
+Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre Segurança da Informação. O projeto foca em oferecer uma interface limpa, com navegação intuitiva e performance otimizada. 
 
 ## 🔗 Acesso Online
 
@@ -64,7 +64,7 @@ Site desenvolvido para a disseminação de boas práticas, alertas e guias sobre
     titulo: "Título do artigo",
     data: "DD/MM/AAAA",
     descricao: "Descrição curta.",
-    categoria: "artigo", // artigo | guia | alerta
+    categoria: "artigo", 
     link: "artigos/nome-do-artigo/"
 }
 ```
@@ -79,4 +79,4 @@ cd Notas-de-ciberseguranca
 
 ---
 
-Desenvolvido por **Samara Vieira** · [GitHub](https://github.com/samaravs) · [Instagram](https://www.instagram.com/notas.ciberseguranca/)
+Desenvolvido por **Samara Vieira** · [GitHub](https://github.com/samaravs)
