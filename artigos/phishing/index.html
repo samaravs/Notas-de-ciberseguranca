@@ -10,16 +10,35 @@
     <meta name="description" content="Entenda o que é phishing, como funciona e como se proteger desse golpe digital.">
     <meta name="keywords" content="cibersegurança, phishing, golpes digitais, segurança online, privacidade">
     <meta name="author" content="Samara Vieira - Notas de Cibersegurança">
-    <link rel="icon" type="image/png" href="../../images/notas.png">
+    <link rel="icon" type="image/png" href="../../assets/notas.png">
 </head>
 
 <body>
+    <div class="read-progress" id="read-progress"></div>
     <div id="app-header"></div>
 
     <main class="container">
         <article class="post-full">
+
+            <nav class="breadcrumb" aria-label="Caminho de navegação">
+                <a href="../../index.html">Início</a>
+                <span aria-hidden="true">›</span>
+                <a href="../../index.html#ultimos-artigos">Artigos</a>
+                <span aria-hidden="true">›</span>
+                <span>Phishing</span>
+            </nav>
+
+            <div class="post-category" aria-label="Categoria">🎣 Engenharia Social</div>
+
             <h1>O que é Phishing?</h1>
-            <p class="post-meta">Publicado em 28/10/2025 • Categoria: Artigo</p>
+
+            <div class="post-meta" aria-label="Informações do artigo">
+                <span>📅 28 out 2025</span>
+                <span class="post-meta-sep" aria-hidden="true"></span>
+                <span class="post-meta-reading">⏱ 5 min de leitura</span>
+                <span class="post-meta-sep" aria-hidden="true"></span>
+                <span>👁 Iniciante</span>
+            </div>
 
             <nav class="toc">
                 <strong>Neste artigo:</strong>
@@ -90,10 +109,16 @@
                 </ol>
             </section>
 
-            <div class="post-footer-nav">
-
-                <a href="../../index.html" class="read-more">← Voltar</a>
-            </div>
+            <nav class="post-nav" aria-label="Navegar entre artigos">
+                <a href="../firewall/" class="post-nav-item post-nav-item--prev">
+                    <div class="post-nav-dir">Artigo anterior</div>
+                    <div class="post-nav-title">O que é um Firewall?</div>
+                </a>
+                <a href="../autenticacao/" class="post-nav-item">
+                    <div class="post-nav-dir">Próximo artigo</div>
+                    <div class="post-nav-title">Autenticação de Dois Fatores (2FA)</div>
+                </a>
+            </nav>
         </article>
     </main>
 

@@ -1,52 +1,51 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notas de Cibersegurança</title>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas de Cibersegurança</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Dicas de cibersegurança, tutoriais de privacidade e alertas para proteger sua vida digital.">
+  <meta name="keywords" content="cibersegurança, phishing, 2fa, firewall, privacidade, segurança digital">
+  <meta name="author" content="Samara — Notas de Cibersegurança">
+  <link rel="icon" type="image/png" href="assets/notas.png">
+</head>
 
-    <meta
-      name="description"
-      content="Dicas de Cibersegurança e tutoriais de privacidade para proteger sua vida digital."
-    />
-    <meta
-      name="keywords"
-      content="cibersegurança, phishing, 2fa, firewall, privacidade"
-    />
-    <meta name="author" content="Samara Vieira - Notas de Cibersegurança" />
+<body>
 
-    <link rel="icon" type="image/png" href="assets/notas.png" />
-  </head>
+  <div class="read-progress" id="read-progress"></div>
+  <div id="app-header"></div>
 
-  <body>
-    <div id="app-header"></div>
+  <main class="container">
 
-    <main class="container">
-      <div class="search-container">
-        <input type="text" id="search-input" placeholder="Pesquisar..." />
-      </div>
+    <div class="search-container">
+      <label for="search-input" class="visually-hidden">Pesquisar artigos</label>
+      <input type="search" id="search-input" placeholder="Pesquisar artigos..." autocomplete="off">
+    </div>
 
-      <section id="ultimos-artigos" class="secao-artigos">
-        <span class="section-label">01 — Artigos</span>
-        <h2>Mais recentes</h2>
-        <div class="post-list" id="lista-ultimos"></div>
-      </section>
+    <section id="ultimos-artigos" class="secao-artigos" aria-labelledby="label-artigos">
+      <span class="section-label" id="label-artigos">Artigos</span>
+      <h2>Mais recentes</h2>
+      <div class="post-list" id="lista-ultimos" role="list"></div>
+    </section>
 
-      <section id="guias" class="secao-guias">
-        <span class="section-label">02 — Conceitos básicos</span>
-        <h2>Guias para iniciantes</h2>
-        <div class="post-list" id="lista-guias"></div>
-      </section>
+    <section id="guias" class="secao-guias" aria-labelledby="label-guias">
+      <span class="section-label" id="label-guias">Conceitos básicos</span>
+      <h2>Guias para iniciantes</h2>
+      <div class="post-list" id="lista-guias" role="list"></div>
+    </section>
 
-      <section id="alertas" class="secao-alertas">
-        <span class="section-label">03 — Notícias de segurança</span>
-        <h2>Alertas recentes</h2>
-        <div class="post-list" id="lista-alertas"></div>
-      </section>
-    </main>
-    <footer id="app-footer"></footer>
-    <script src="script.js"></script>
-  </body>
+    <section id="alertas" class="secao-alertas" aria-labelledby="label-alertas">
+      <span class="section-label" id="label-alertas">Notícias de segurança</span>
+      <h2>Alertas recentes</h2>
+      <div class="post-list" id="lista-alertas" role="list"></div>
+    </section>
+
+  </main>
+
+  <footer id="app-footer"></footer>
+  <script src="script.js"></script>
+
+</body>
 </html>

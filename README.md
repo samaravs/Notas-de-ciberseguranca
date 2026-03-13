@@ -29,13 +29,16 @@ Como o foco era dominar a base antes de pular para frameworks complexos (como Re
 - **Filtros e Buscas:** Implementei um `addEventListener` na barra de pesquisa que filtra a renderização dos cards de artigos instantaneamente.
 - **CSS Modular:** Utilizei CSS Variables (`:root`) para gerenciar o tema de cores de forma global.
 - **Arquitetura de Pastas e URLs Limpas:** Estruturei os diretórios para que os caminhos fiquem amigáveis, lidando com caminhos relativos (`../../`) no CSS e JS de forma eficiente.
+- **Renderização baseada em rota:** Implementei detecção de rota em JavaScript puro para adaptar o cabeçalho dinamicamente — exibindo o hero na página inicial e a navegação interna nos artigos, sem nenhum framework.
 
 ## 💻 Funcionalidades
 
 - **Busca em tempo real:** Filtro de posts por título sem recarregar a página.
+- **Tempo de leitura estimado:** Cada artigo calcula automaticamente o tempo de leitura com base na contagem de palavras do conteúdo.
+- **Navbar adaptativa:** Cabeçalho fixo com efeito de desfoque (backdrop-filter) que se adapta visualmente entre a página inicial e os artigos internos.
 - **Design Responsivo (Mobile First):** Interface adaptável para desktop, tablet e smartphone, com menu hambúrguer customizado.
 - **Tema e Tipografia:** Identidade visual imersiva com fontes importadas (Outfit e Inter) para otimizar a leitura de artigos longos.
-- **Performance:** Carregamento rápido usando apenas tecnologias nativas.
+- **Performance:** Sem dependências externas nem frameworks, apenas HTML, CSS e JavaScript nativos, mantendo o código leve e fácil de manter.
 
 ## 📂 Estrutura
 
