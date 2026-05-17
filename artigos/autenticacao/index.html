@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autenticação de 2FA — Notas de Cibersegurança</title>
+  <link rel="stylesheet" href="../../style.css">
+  <meta name="description" content="Entenda o que é autenticação de dois fatores (2FA) e por que você deve ativar hoje.">
+  <meta name="keywords" content="cibersegurança, 2fa, autenticação dois fatores, segurança online, privacidade">
+  <meta name="author" content="Samara — Notas de Cibersegurança">
+  <link rel="icon" type="image/png" href="../../assets/notas.webp">
+</head>
+
+<body>
+
+  <div class="read-progress" id="read-progress"></div>
+  <div id="app-header"></div>
+
+  <main>
+    <article class="post-full">
+
+      <nav class="breadcrumb" aria-label="Caminho de navegação">
+        <a href="../../index.html">Início</a>
+        <span aria-hidden="true">›</span>
+        <a href="../../index.html#ultimos-artigos">Artigos</a>
+        <span aria-hidden="true">›</span>
+        <span>2FA</span>
+      </nav>
+
+      <div class="post-category" aria-label="Categoria">🔐 Autenticação</div>
+
+      <h1>Autenticação de Dois Fatores (2FA): o que é e por que usar agora</h1>
+
+      <div class="post-meta" aria-label="Informações do artigo">
+        <span>📅 30 out 2025</span>
+        <span class="post-meta-sep" aria-hidden="true"></span>
+        <span class="post-meta-reading">⏱ 4 min de leitura</span>
+        <span class="post-meta-sep" aria-hidden="true"></span>
+        <span>👁 Iniciante</span>
+      </div>
+
+      <p class="subtitulo">
+        Você usa a mesma senha em vários sites? Entenda como uma camada extra de segurança pode salvar suas contas de um desastre.
+      </p>
+
+      <nav class="toc" aria-label="Sumário do artigo">
+        <strong>Neste artigo:</strong>
+        <ul>
+          <li><a href="#sec1">O que é 2FA</a></li>
+          <li><a href="#sec2">Como funciona na prática</a></li>
+          <li><a href="#sec3">Por que usar</a></li>
+        </ul>
+      </nav>
+
+      <section class="post-content">
+
+        <figure>
+          <img
+            src="../../assets/escudo.webp"
+            alt="Ilustração de um smartphone protegido por um escudo de segurança, simbolizando a proteção da autenticação de dois fatores."
+            loading="lazy"
+          >
+          <figcaption>
+            A 2FA adiciona uma barreira essencial de proteção, exigindo uma segunda prova de identidade além da senha.
+            <span class="image-credit">
+              Crédito: <a href="https://magnific.ai" target="_blank" rel="noopener">juicy_fish / MAGNIFIC</a>
+            </span>
+          </figcaption>
+        </figure>
+
+        <p>No mundo digital de hoje, usamos senhas para quase tudo: e-mail, redes sociais, contas bancárias, compras online e até para o trabalho. O problema? Na maioria das vezes, essa senha é a <strong>única coisa que protege suas informações</strong>. É aqui que entra a <strong>Autenticação de Dois Fatores (2FA)</strong> — uma tranca extra que pede uma segunda prova de identidade.</p>
+
+        <h2 id="sec1">O que é a Autenticação de Dois Fatores?</h2>
+
+        <p>A 2FA exige que você forneça duas formas diferentes de identificação antes de acessar uma conta. Os fatores se dividem em três tipos:</p>
+
+        <ol>
+          <li><strong>Algo que você sabe:</strong> uma senha ou código PIN.</li>
+          <li><strong>Algo que você tem:</strong> seu smartphone, um token USB ou cartão de acesso.</li>
+          <li><strong>Algo que você é:</strong> impressão digital, reconhecimento facial ou leitura de íris.</li>
+        </ol>
+
+        <p>A 2FA combina dois desses fatores. A combinação mais popular: <strong>senha + celular.</strong></p>
+
+        <h2 id="sec2">Como o 2FA funciona na prática?</h2>
+
+        <ol>
+          <li><strong>Fator 1:</strong> você digita seu e-mail e senha corretamente.</li>
+          <li>
+            <strong>Fator 2:</strong> o serviço pede um código enviado ao seu celular:
+            <ul>
+              <li><strong>SMS:</strong> código de 6 dígitos. Conveniente, mas o menos seguro.</li>
+              <li><strong>Aplicativo autenticador:</strong> código que muda a cada 30 segundos.</li>
+              <li><strong>Notificação push:</strong> o app pergunta "É você?" e você confirma.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout callout--warning">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Evite o 2FA por SMS sempre que possível.</strong> O ataque chamado <em>SIM Swapping</em> permite que criminosos transfiram seu número para outro chip e interceptem os códigos.
+          </div>
+        </div>
+
+        <figure>
+          <img
+            src="../../assets/autenticador.webp"
+            alt="Interface de um aplicativo autenticador gerando códigos numéricos temporários (TOTP) para acesso seguro."
+            loading="lazy"
+          >
+          <figcaption>Aplicativos autenticadores geram tokens temporários que expiram em segundos, garantindo uma camada de segurança dinâmica.</figcaption>
+        </figure>
+
+        <h2 id="sec3">Por que o 2FA é tão importante?</h2>
+
+        <p><strong>Porque senhas vazam o tempo todo.</strong> Com o 2FA ativado, mesmo que um atacante obtenha sua senha, ele não consegue acessar sua conta sem o segundo fator.</p>
+
+        <div class="callout callout--tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Recomendação:</strong> use <strong>Google Authenticator</strong>, <strong>Authy</strong> ou <strong>Bitwarden Authenticator</strong> em vez de SMS. São gratuitos e muito mais seguros.
+          </div>
+        </div>
+
+        <div class="callout callout--info">
+          <span class="callout-icon" aria-hidden="true">🎯</span>
+          <div class="callout-body">
+            <strong>Sua tarefa de hoje:</strong> acesse as configurações de segurança do seu e-mail e ative a autenticação de dois fatores. Leva menos de 5 minutos e pode salvar sua conta.
+          </div>
+        </div>
+
+      </section>
+
+    </article>
+  </main>
+
+  <footer id="app-footer"></footer>
+  <script src="../../script.js"></script>
+
+</body>
+</html>

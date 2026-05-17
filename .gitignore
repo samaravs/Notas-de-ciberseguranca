@@ -1,0 +1,17 @@
+# Variáveis de ambiente e Segredos
+.env
+
+# Ambiente virtual Python
+.venv/
+__pycache__/
+
+# Scripts de automação local
+db_sync.py
+session_handler.py
+cache_manager.py
+log_formatter.py
+
+# Arquivos de backup e temporários
+*.bak
+*.bak.html
+*.log
