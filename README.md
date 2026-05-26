@@ -1,8 +1,8 @@
 # 🛡️ Notas de Cibersegurança
 
-![Notas de Cibersegurança](notasciberseguranca.gif)
+![Notas de Cibersegurança](assets/notasciberseguranca.gif)
 
-Blog minimalista sobre segurança digital, desenvolvido como um laboratório prático para consolidar fundamentos de Front-end (HTML, CSS e JavaScript).
+Blog sobre segurança digital, desenvolvido como um laboratório prático para consolidar fundamentos de Front-end (HTML, CSS e JavaScript).
 
 👉 **[Acesse o projeto online](https://samaravs.github.io/Notas-de-ciberseguranca/)**
 
