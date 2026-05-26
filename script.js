@@ -1,6 +1,4 @@
-/* ═══════════════════════════════════════════
-   POSTS
-═══════════════════════════════════════════ */
+
 const posts = [
                             {
     titulo:    'Dark web: o lado sombrio da internet',
@@ -129,24 +127,15 @@ const posts = [
     link:      'artigos/golpes/',
   },
 ];
-
-/* Ordena por data mais recente */
 function parseDateBR(str) {
   const [d, m, y] = str.split('/');
   return new Date(`${y}-${m}-${d}`);
 }
-
 posts.sort((a, b) => parseDateBR(b.data) - parseDateBR(a.data));
-
-/* ═══════════════════════════════════════════
-   HELPERS
-═══════════════════════════════════════════ */
-
 function getRouteBase(path) {
   if (path.includes('/artigos/')) return '../../';
   return '';
 }
-
 function detectPageType(path) {
   const isArticleRoute = path.includes('/artigos/');
   const isHomeFile = path.endsWith('/index.html') || path.endsWith('index.html');
@@ -154,7 +143,6 @@ function detectPageType(path) {
   const isHome = !isArticleRoute && (isHomeFile || isHomeRoot);
   return { isHome, base: getRouteBase(path) };
 }
-
 function buildPostCard(post, base) {
   const hasLink = post.link !== '#';
   const categoryLabels = {
@@ -163,15 +151,12 @@ function buildPostCard(post, base) {
     alerta: '🚨 Alerta'
   };
   const categoryLabel = categoryLabels[post.categoria] || '📖 Artigo';
-
   const titleEl = hasLink
     ? `<a href="${base}${post.link}">${post.titulo}</a>`
     : `<span>${post.titulo}</span>`;
-
   const ctaEl = hasLink
     ? `<a href="${base}${post.link}" class="read-more" aria-label="Ler artigo: ${post.titulo}">Ler artigo →</a>`
     : `<span class="post-em-breve" aria-label="Em breve">Em breve</span>`;
-
   return `
     <article class="post-preview" role="listitem">
       <div class="post-card-category">${categoryLabel}</div>
@@ -184,12 +169,10 @@ function buildPostCard(post, base) {
     </article>
   `;
 }
-
 function formatDateISO(str) {
   const [d, m, y] = str.split('/');
   return `${y}-${m}-${d}`;
 }
-
 function normalizeSearchText(value) {
   return (value ?? '')
     .normalize('NFD')
@@ -197,11 +180,6 @@ function normalizeSearchText(value) {
     .toLowerCase()
     .trim();
 }
-
-/* ═══════════════════════════════════════════
-   COMPONENTES DE LAYOUT
-═══════════════════════════════════════════ */
-
 function buildNav(isHome, base) {
   return `
     <nav class="${isHome ? '' : 'nav-interna'}" aria-label="Navegação principal">
@@ -217,7 +195,6 @@ function buildNav(isHome, base) {
           <li><a href="${base}index.html#guias">Conceitos básicos</a></li>
           <li><a href="${base}index.html#ultimos-artigos">Artigos</a></li>
           <li><a href="${base}index.html#alertas">Notícias</a></li>
-
           <li><a href="${base}ferramentas.html">Ferramentas</a></li>
           <li><a href="${base}sobre.html">Sobre</a></li>
         </ul>
@@ -225,7 +202,6 @@ function buildNav(isHome, base) {
     </nav>
   `;
 }
-
 function buildHero() {
   return `
     <header class="hero" role="banner">
@@ -236,7 +212,6 @@ function buildHero() {
     </header>
   `;
 }
-
 function buildFooter(base) {
   const currentYear = new Date().getFullYear();
   return `
@@ -248,78 +223,54 @@ function buildFooter(base) {
     </div>
   `;
 }
-
-/* ═══════════════════════════════════════════
-   BARRA DE PROGRESSO DE LEITURA
-═══════════════════════════════════════════ */
 function initReadProgress() {
   const bar = document.getElementById('read-progress');
   if (!bar) return;
-
   function updateProgress() {
     const doc = document.documentElement;
     const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
     bar.style.width = `${Math.min(scrolled * 100, 100)}%`;
   }
-
   window.addEventListener('scroll', updateProgress, { passive: true });
 }
-
 function initReadingTime() {
   const readingEl = document.querySelector('.post-meta-reading');
   const articleContent = document.querySelector('.post-content');
   if (!readingEl || !articleContent) return;
-
   const contentText = articleContent.textContent ?? '';
   const words = contentText
     .trim()
     .split(/\s+/)
     .filter(Boolean).length;
-
   const WORDS_PER_MINUTE = 220;
   const readingMinutes = Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
   readingEl.textContent = `⏱ ${readingMinutes} min de leitura`;
 }
-
-/* ═══════════════════════════════════════════
-   LISTAGEM DE POSTS
-═══════════════════════════════════════════ */
 function loadPosts(base) {
   const containers = {
     artigo: document.getElementById('lista-ultimos'),
     guia:   document.getElementById('lista-guias'),
     alerta: document.getElementById('lista-alertas'),
   };
-
   if (!Object.values(containers).some(Boolean)) return;
-
   Object.values(containers).forEach(el => { if (el) el.innerHTML = ''; });
-
   posts.forEach(post => {
     const target = containers[post.categoria];
     if (target) target.innerHTML += buildPostCard(post, base);
   });
 }
-
-/* ═══════════════════════════════════════════
-   BUSCA EM TEMPO REAL
-═══════════════════════════════════════════ */
 function initSearch() {
   const input = document.getElementById('search-input');
   if (!input) return;
-
   const sections = Array.from(document.querySelectorAll('.secao-artigos, .secao-guias, .secao-alertas'));
   let wasSearching = false;
-
   const categoryByListId = {
     'lista-ultimos': 'artigo',
     'lista-guias': 'guia',
     'lista-alertas': 'alerta',
   };
-
   const searchContainer = input.closest('.search-container');
   let emptyState = document.getElementById('search-empty');
-
   if (!emptyState && searchContainer) {
     emptyState = document.createElement('p');
     emptyState.id = 'search-empty';
@@ -328,91 +279,64 @@ function initSearch() {
     emptyState.style.display = 'none';
     searchContainer.appendChild(emptyState);
   }
-
   input.addEventListener('input', () => {
     const query = normalizeSearchText(input.value);
     const isSearching = query.length > 0;
     let visibleCount = 0;
-
     document.querySelectorAll('.post-preview').forEach(card => {
       const title = card.querySelector('h3')?.textContent ?? '';
       const description = card.querySelector('p')?.textContent ?? '';
       const listId = card.closest('.post-list')?.id ?? '';
       const category = categoryByListId[listId] ?? '';
-
       const searchableText = normalizeSearchText(`${title} ${description} ${category}`);
       const isMatch = searchableText.includes(query);
-
       card.style.display = isMatch ? '' : 'none';
       if (isMatch) visibleCount += 1;
     });
-
     sections.forEach(section => {
       const cards = section.querySelectorAll('.post-preview');
       const hasVisibleCards = Array.from(cards).some(card => card.style.display !== 'none');
       section.style.display = !isSearching || hasVisibleCards ? '' : 'none';
     });
-
     if (isSearching && !wasSearching) {
       const firstVisibleSection = sections.find(section => section.style.display !== 'none');
       if (firstVisibleSection) {
         firstVisibleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-
     if (emptyState) {
       emptyState.style.display = isSearching && visibleCount === 0 ? 'block' : 'none';
     }
-
     wasSearching = isSearching;
   });
 }
-
-/* ═══════════════════════════════════════════
-   MENU MOBILE
-═══════════════════════════════════════════ */
 function initMobileMenu() {
   const toggle = document.querySelector('.menu-toggle');
   const menu   = document.getElementById('menu-principal');
   if (!toggle || !menu) return;
-
   toggle.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('menu-ativo');
     toggle.classList.toggle('menu-ativo', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
   });
 }
-
-/* ═══════════════════════════════════════════
-   LINK ATIVO NO NAV
-═══════════════════════════════════════════ */
 function markActiveLink(base) {
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-
   document.querySelectorAll('#menu-principal a').forEach(link => {
     const href     = link.getAttribute('href') ?? '';
     const linkFile = href.split('#')[0].replace(base, '');
     const hasHash  = href.includes('#');
-
     if (!hasHash && (linkFile === currentFile || (currentFile === '' && linkFile === 'index.html'))) {
       link.classList.add('ativo');
     }
   });
 }
-
-/* ═══════════════════════════════════════════
-   NAVEGAÇÃO DOS ARTIGOS (BOTÃO VOLTAR)
-   ═══════════════════════════════════════════ */
 function initArticleNavigation() {
   const { isHome, base } = detectPageType(window.location.pathname);
   if (isHome) return;
-
   const article = document.querySelector('.post-full');
   if (!article) return;
-
-  // Evita duplicar se já existir (seja via script ou hardcoded)
   if (article.querySelector('.back-to-all')) return;
-
   const backNav = document.createElement('div');
   backNav.className = 'post-footer-nav back-to-all';
   backNav.innerHTML = `
@@ -420,24 +344,16 @@ function initArticleNavigation() {
       ← Voltar para todos os artigos
     </a>
   `;
-  
   const postNav = article.querySelector('.post-nav');
   const contents = article.querySelectorAll('.post-content');
-  
   if (postNav) {
-    // Se houver navegação entre posts, coloca o "Voltar" logo acima dela
     postNav.insertAdjacentElement('beforebegin', backNav);
   } else if (contents.length > 0) {
-    // Se não houver, coloca após o último bloco de conteúdo
     contents[contents.length - 1].insertAdjacentElement('afterend', backNav);
   } else {
     article.appendChild(backNav);
   }
 }
-
-/* ═══════════════════════════════════════════
-   BOTÃO VOLTAR AO TOPO
-   ═══════════════════════════════════════════ */
 function initBackToTop() {
   const btn = document.createElement('button');
   btn.id = 'back-to-top';
@@ -445,7 +361,6 @@ function initBackToTop() {
   btn.setAttribute('aria-label', 'Voltar ao topo');
   btn.innerHTML = '↑';
   document.body.appendChild(btn);
-
   window.addEventListener('scroll', () => {
     if (window.scrollY > 400) {
       btn.classList.add('visible');
@@ -453,44 +368,28 @@ function initBackToTop() {
       btn.classList.remove('visible');
     }
   }, { passive: true });
-
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-/* ═══════════════════════════════════════════
-   INICIALIZAÇÃO
-═══════════════════════════════════════════ */
-/* ═══════════════════════════════════════════
-   CENTRAL DE ALERTAS LIVE
-   ═══════════════════════════════════════════ */
 function initThreatHub() {
   const container = document.getElementById('live-threat-hub');
   if (!container) return;
-
   const { isHome, base } = detectPageType(window.location.pathname);
-
-  // Alertas locais gerados pela IA
   let localThreats = posts
     .filter(p => p.categoria === 'alerta')
     .map(p => `<a href="${base}${p.link}" style="color: inherit; text-decoration: none;">🚨 ${p.titulo}</a>`);
-
-  // Fallback caso não existam alertas locais
   if (localThreats.length === 0) {
     localThreats = [
       "Aumento de ataques de Ransomware detectado em infraestruturas críticas.",
       "Nova campanha de Phishing explorando temas de declaração de impostos."
     ];
   }
-
   let threats = [...localThreats];
   let currentIndex = 0;
   let intervalId = null;
-  
   function updateThreat() {
     const message = threats[currentIndex];
-    
     container.innerHTML = `
       <div class="threat-hub">
         <div class="threat-status" title="Buscando alertas em tempo real">
@@ -502,51 +401,61 @@ function initThreatHub() {
     `;
     currentIndex = (currentIndex + 1) % threats.length;
   }
-
   updateThreat();
-  intervalId = setInterval(updateThreat, 6000); // 6s
-
-  // Busca notícias reais da API em background
-  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews')
-    .then(response => response.json())
-    .then(data => {
+  intervalId = setInterval(updateThreat, 6000); 
+  const feeds = [
+    { url: 'https://www.cisoadvisor.com.br/feed/', name: 'CISO Advisor' },
+    { url: 'https://www.seginfo.com.br/feed/', name: 'SegInfo' }
+  ];
+  Promise.all(
+    feeds.map(feed =>
+      fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`)
+        .then(res => res.ok ? res.json() : null)
+        .catch(() => null)
+    )
+  ).then(results => {
+    const apiThreats = [];
+    results.forEach((data, index) => {
       if (data && data.status === 'ok' && data.items && data.items.length > 0) {
-        const apiThreats = data.items.slice(0, 7).map(item => 
-          `<a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">📰 ${item.title} (The Hacker News)</a>`
-        );
-        
-        // Intercala um alerta local e uma notícia internacional
-        const combinedThreats = [];
-        const maxLen = Math.max(localThreats.length, apiThreats.length);
-        for (let i = 0; i < maxLen; i++) {
-          if (i < localThreats.length) combinedThreats.push(localThreats[i]);
-          if (i < apiThreats.length) combinedThreats.push(apiThreats[i]);
-        }
-        
-        threats = combinedThreats;
-        currentIndex = 0;
-        clearInterval(intervalId);
-        updateThreat(); // força a próxima mensagem instantaneamente
-        intervalId = setInterval(updateThreat, 6000); // tempo de troca
+        const name = feeds[index].name;
+        data.items.slice(0, 5).forEach(item => {
+          apiThreats.push({
+            title: item.title,
+            link: item.link,
+            pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+            source: name
+          });
+        });
       }
-    })
-    .catch(error => console.error("Erro ao carregar notícias live:", error));
+    });
+    apiThreats.sort((a, b) => b.pubDate - a.pubDate);
+    const apiThreatsHtml = apiThreats.slice(0, 8).map(item =>
+      `<a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">📰 ${item.title} (${item.source})</a>`
+    );
+    if (apiThreatsHtml.length > 0) {
+      const combinedThreats = [];
+      const maxLen = Math.max(localThreats.length, apiThreatsHtml.length);
+      for (let i = 0; i < maxLen; i++) {
+        if (i < localThreats.length) combinedThreats.push(localThreats[i]);
+        if (i < apiThreatsHtml.length) combinedThreats.push(apiThreatsHtml[i]);
+      }
+      threats = combinedThreats;
+      currentIndex = 0;
+      clearInterval(intervalId);
+      updateThreat(); 
+      intervalId = setInterval(updateThreat, 6000); 
+    }
+  }).catch(error => console.error("Erro ao carregar notícias live:", error));
 }
-
-/* ═══════════════════════════════════════════
-   TRILHA DE ESTUDOS (ROADMAP)
-   ═══════════════════════════════════════════ */
 function initRoadmap() {
   const container = document.getElementById('learning-roadmap');
   if (!container) return;
-
   const steps = [
     { n: 1, t: "Fundamentos", d: "Entenda como a internet funciona e proteja suas senhas.", link: "#guias" },
     { n: 2, t: "Engenharia Social", d: "Aprenda a identificar manipulações e golpes digitais.", link: "artigos/engenharia-social-quando-seu-cerebro-e-o-proximo-alvo-o-hack-que-nenhum-antivirus-pega/" },
     { n: 3, t: "Defesa de Rede", d: "Configure firewalls e entenda a segurança de conexões.", link: "artigos/firewall/" },
     { n: 4, t: "Proteção Avançada", d: "MFA, Criptografia e planos de resposta a incidentes.", link: "artigos/autenticacao/" }
   ];
-
   container.innerHTML = `
     <section class="roadmap-container">
       <span class="section-label">Guia de Estudos</span>
@@ -563,21 +472,14 @@ function initRoadmap() {
     </section>
   `;
 }
-
-
-/* ═══════════════════════════════════════════
-   QUIZ INTERATIVO
-   ═══════════════════════════════════════════ */
 function initQuiz() {
   const quizContainers = document.querySelectorAll('.quiz-placeholder');
   if (quizContainers.length === 0) return;
-
   quizContainers.forEach(container => {
     const q = container.dataset.question;
     const options = JSON.parse(container.dataset.options);
     const correct = parseInt(container.dataset.correct);
     const feedback = container.dataset.feedback;
-
     container.innerHTML = `
       <div class="quiz-box">
         <div class="quiz-header">
@@ -592,10 +494,8 @@ function initQuiz() {
         <div class="quiz-feedback"></div>
       </div>
     `;
-
     const optionEls = container.querySelectorAll('.quiz-option');
     const feedbackEl = container.querySelector('.quiz-feedback');
-
     optionEls.forEach(opt => {
       opt.addEventListener('click', () => {
         const index = parseInt(opt.dataset.index);
@@ -616,24 +516,17 @@ function initQuiz() {
     });
   });
 }
-
-/* ═══════════════════════════════════════════
-   INICIALIZAÇÃO
-   ═══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
   const { isHome, base } = detectPageType(window.location.pathname);
   document.body.classList.toggle('has-nav-interna', !isHome);
-
   const headerEl = document.getElementById('app-header');
   if (headerEl) {
     headerEl.innerHTML = isHome
       ? buildNav(true, base) + buildHero()
       : buildNav(false, base);
   }
-
   const footerEl = document.getElementById('app-footer');
   if (footerEl) footerEl.innerHTML = buildFooter(base);
-
   loadPosts(base);
   initSearch();
   initMobileMenu();
